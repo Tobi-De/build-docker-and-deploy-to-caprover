@@ -1,4 +1,4 @@
-name: build-docker-and-deploy-to-caprover
+name: test-cap-deploy
 description: Build a Docker image, cache the resulting layers, and push it to a CapRover application.
 
 branding:
