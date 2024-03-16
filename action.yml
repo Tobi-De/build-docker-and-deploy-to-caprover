@@ -47,7 +47,7 @@ runs:
       id: set-image-name
       run: |
         if [ -z "${{ github.event.inputs.image-name }}" ]; then
-          IMAGE_NAME=$(echo ${{ github.repository }} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)-${{ inputs.caprover-app-name | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z }}
+          IMAGE_NAME=$(echo ${{ github.repository }} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)-$(echo ${{ inputs.caprover-app-name }} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)
           echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
         else
           echo "IMAGE_NAME=${{ github.event.inputs.image-name }}" >> $GITHUB_ENV
