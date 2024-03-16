@@ -50,7 +50,7 @@ runs:
         echo "$1" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z
         }
 
-        if [ -z "${{ github.event.inputs.image-name }}" ]; then
+        if [ -z "${{ inputs.image-name }}" ]; then
           IMAGE_NAME=$(slugify ${{ github.repository }})-$(slugify ${{ inputs.caprover-app-name }})
           echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
         fi
